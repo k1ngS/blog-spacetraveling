@@ -33,29 +33,21 @@ interface GetStaticPropsResult {
   props: PostProps;
 }
 
-const mockedGetByTypeReturn = {
+const mockedQueryReturn = {
   results: [
-  {
-    uid: 'como-utilizar-hooks',
-  },
-  {
-    uid: 'criando-um-app-cra-do-zero',
-  },
-  ]
-}
-
-const mockedGetAllByTypeReturn = [
-  {
-    uid: 'como-utilizar-hooks',
-  },
-  {
-    uid: 'criando-um-app-cra-do-zero',
-  },
-]
+    {
+      uid: 'como-utilizar-hooks',
+    },
+    {
+      uid: 'criando-um-app-cra-do-zero',
+    },
+  ],
+};
 
 const mockedGetByUIDReturn = {
   uid: 'como-utilizar-hooks',
   first_publication_date: '2021-03-25T19:25:28+0000',
+  last_publication_date: '2021-03-25T19:25:28+0000',
   data: {
     title: 'Como utilizar Hooks',
     subtitle: 'Pensando em sincronização em vez de ciclos de vida',
@@ -210,12 +202,9 @@ describe('Post', () => {
       getByUID: () => {
         return Promise.resolve(mockedGetByUIDReturn);
       },
-      getAllByType: () => {
-        return Promise.resolve(mockedGetAllByTypeReturn);
+      query: () => {
+        return Promise.resolve(mockedQueryReturn);
       },
-      getByType: () => {
-        return Promise.resolve(mockedGetByTypeReturn);
-      }
     });
   });
 
@@ -254,7 +243,7 @@ describe('Post', () => {
       getStaticPropsContext
     )) as GetStaticPropsResult;
 
-    expect(response.props.post).toEqual(expect.objectContaining(postReturn));
+    expect(response.props.post).toEqual(postReturn);
   });
 
   it('should be able to render post document info', () => {
@@ -283,5 +272,13 @@ describe('Post', () => {
     render(<Post post={postProps} />);
 
     screen.getByText('Carregando...');
+  });
+
+  it('should be able to render Header component', () => {
+    const postProps = mockedGetByUIDReturn;
+
+    render(<Post post={postProps} />);
+
+    screen.getByAltText('logo');
   });
 });

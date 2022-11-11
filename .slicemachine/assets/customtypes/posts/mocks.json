@@ -1,0 +1,40 @@
+{
+  "id": "mock-doc-id",
+  "url": null,
+  "type": "posts",
+  "href": null,
+  "tags": [],
+  "first_publication_date": "1970-01-01T00:00:01+0000",
+  "last_publication_date": "1970-01-01T00:00:01+0000",
+  "slugs": [],
+  "linked_documents": [],
+  "lang": "en-us",
+  "alternate_languages": [],
+  "data": {
+    "title": "outside",
+    "subtitle": "ice",
+    "author": "college",
+    "banner": {
+      "dimensions": {
+        "width": 900,
+        "height": 500
+      },
+      "alt": null,
+      "copyright": null,
+      "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef"
+    },
+    "content": [
+      {
+        "heading": "possibly",
+        "body": [
+          {
+            "type": "paragraph",
+            "text": "Minim et aute laborum mollit ea eu. Ullamco ut aliqua sint aliqua ea proident eu esse ullamco reprehenderit id excepteur. Aliqua eiusmod velit quis culpa nostrud ad.",
+            "spans": []
+          }
+        ]
+      }
+    ],
+    "slices": []
+  }
+}
